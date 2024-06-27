@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "603158570935",
+    "project_id": "humiapp-f29c7",
+    "storage_bucket": "humiapp-f29c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603158570935:android:090c5dd9f60e013179aa32",
+        "android_client_info": {
+          "package_name": "com.example.humidifier_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAinmS1lpJJO_XZqUKEn9AYo7Vx92XR03Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

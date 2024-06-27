@@ -1,0 +1,72 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
+if (flutterVersionCode == null) {
+    flutterVersionCode = "1"
+}
+
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
+if (flutterVersionName == null) {
+    flutterVersionName = "1.0"
+}
+
+android {
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0"  // Adjust version as necessary
+
+    defaultConfig {
+        applicationId "com.example.humidifier_app"
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        namespace 'com.example.humidifier_app' // Replace with your application's package name
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            // Customize your signing config for release builds
+            signingConfig signingConfigs.debug  // Adjust as necessary
+        }
+    }
+
+    // Disable lint checking for release builds to speed up build time
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    // Import the Firebase BoM
+    implementation platform("com.google.firebase:firebase-bom:33.1.1")
+
+    // Add other dependencies for Firebase products you are using
+    // Example:
+    // implementation 'com.google.firebase:firebase-analytics'
+}
+
+// Apply plugin for Google Services at the end
+apply plugin: 'com.google.gms.google-services'
